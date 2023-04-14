@@ -4,8 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Psy\CodeCleaner\ValidFunctionNamePass;
 
 class Post extends Model
 {
-    //use HasFactory;
+    use HasFactory;
+
+    protected $fillable = ['title', 'slug','content', 'category_id', 'description', 'posted', 'image'];
+    public function category()
+    {
+       return $this->belongsTo(Category::class);
+    }
 }
