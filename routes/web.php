@@ -71,7 +71,7 @@ Route::get('/testIndex', [TestController::class, 'index']);
  */
 
 //podemos meterle mas funciones aparte de prefix, como middlewares o varias cosas (checar documentacióm)
-Route::group(['prefix' => 'dashboard', 'middleware'=> 'auth'], function (){
+Route::group(['prefix' => 'dashboard', 'middleware'=> ['auth', "admin"]], function (){
    /*  Route::resource('post', PostController::class)->only(['show']);
     Route::resource('category', CategoryController::class)->except(['show']); */
     Route::get('/', function () {
