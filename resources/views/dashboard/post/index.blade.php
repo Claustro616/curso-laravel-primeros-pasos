@@ -1,47 +1,47 @@
 @extends('dashboard.layout')
 
 @section('content')
-    <a href="{{ route('post.create') }}">Crear</a>
+    <a class="btn btn-success" href="{{ route('post.create') }}">Crear</a>
 
-    <table>
+    <table class="table mb-3">
         <thead>
             <tr>
-                <td>
+                <th>
                     Titulo
-                </td>
-                <td>
+                </th>
+                <th>
                     Categoria
-                </td>
-                <td>
+                </th>
+                <th>
                     Posteado
-                </td>
-                <td>
+                </th>
+                <th>
                     Acciones
-                </td>
+                </th>
             </tr>
         </thead>
         <tbody>
             @foreach ($posts as $p)
                 <tr>
-                    <th>
+                    <td>
                         {{ $p->title }}
-                    </th>
-                    <th>
+                    </td>
+                    <td>
                         {{$p->category->title}}
-                    </th>
-                    <th>
+                    </td>
+                    <td>
                         {{ $p->posted }}
-                    </th>
-                    <th>
+                    </td>
+                    <td>
                         {{-- $p->id --}}
-                        <a href="{{ route('post.edit', $p) }}">Editar</a>
-                        <a href="{{ route('post.show', $p) }}">Ver</a>
+                        <a class="btn btn-primary" href="{{ route('post.edit', $p) }}">Editar</a>
+                        <a class="btn btn-primary" href="{{ route('post.show', $p) }}">Ver</a>
                         <form action="{{ route('post.destroy', $p) }}" method="POST">
                             @csrf
                             @method("DELETE")
-                            <button type="submit">Eliminar</button>
+                            <button class="btn btn-danger" type="submit">Eliminar</button>
                         </form>
-                    </th>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

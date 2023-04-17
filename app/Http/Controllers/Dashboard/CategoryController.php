@@ -20,6 +20,11 @@ class CategoryController extends Controller
         return view('dashboard.category.index', compact('categories'));
     }
 
+    public function new($id)
+    {
+        # code...
+    }
+
     /**
      * Show the form for creating a new resource.
      */
